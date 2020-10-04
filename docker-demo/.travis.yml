@@ -1,0 +1,9 @@
+sudo: required #super-user permissions
+services:
+    - docker
+before_install: #what to do before run our tests
+    - docker build -t kreekeris/docker-demo -f Dockerfile.dev .
+
+script:
+    - docker run kreekeris/docker-demo npm run test -- --coverage #npm run tests command exists automatically 
+
